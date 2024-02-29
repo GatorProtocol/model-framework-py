@@ -62,7 +62,7 @@ class Model:
                         estimated_gas_cost = gasEstimate * gasPrice
                         balance = self.provider.eth.get_balance(self.public_key)
                         if balance < estimated_gas_cost:
-                            raise Exception(f"\n   ERROR: insufficient funds. Have {balance}, need {estimated_gas_cost}")
+                            raise Exception(f"ERROR: insufficient funds. Have {balance}, need {estimated_gas_cost}")
                         else:
                             txn_dict = function.build_transaction({
                                 'gas': int(gasEstimate * 5 * self.boost),
